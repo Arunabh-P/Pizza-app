@@ -1,0 +1,33 @@
+.btn1 {
+  background-color: #ff2625;
+  border: none;
+}
+.btn1:hover {
+  background-color: #fdc721;
+}
+.pizza-list {
+  overflow: auto;
+}
+.pizza-list::-webkit-scrollbar {
+  display: none;
+}
+.arrow-img {
+  width: 80px;
+}
+.arrow-text {
+  font-family: fantasy;
+  color: #ff2625;
+}
+.arrow-text-span {
+  color: #211414;
+}
+.pizza-card {
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffff;
+}

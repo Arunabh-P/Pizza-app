@@ -1,12 +1,15 @@
 import './App.css';
 import Topbar from './components/Topbar';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import HomeScreen from './screens/HomeScreen';
 function App() {
   return (
     <BrowserRouter>
-      <Topbar />
       <NavBar />
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+      </Routes>
     </BrowserRouter>
   );
 }
