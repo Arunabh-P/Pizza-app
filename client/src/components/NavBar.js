@@ -7,14 +7,14 @@ import { Image } from 'react-bootstrap';
 
 const NavBar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" style={{ background: '#FF2625' }}>
+    <Navbar className="navbar-wrapper" collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand href="/">
           <Navbar.Brand>
             <Image
               src="images/logo.png"
               alt="logo"
-              style={{ height: '50px' }}
+              style={{ width: '220px' }}
             />
           </Navbar.Brand>
         </Navbar.Brand>
@@ -30,7 +30,7 @@ const NavBar = () => {
             <Nav.Link eventKey={2} href="#memes">
               Login
             </Nav.Link>
-            <Nav.Link className="text-white" eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} href="#memes">
               Register
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
