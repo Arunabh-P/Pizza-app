@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "data:import": "node seeder.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^6.10.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",

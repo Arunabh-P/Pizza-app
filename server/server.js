@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV;
 const connectDb = require('./config/config');
 const app = express();
-
+const pizzaRouter = require('./routes/pizzaRouter');
 //database
 connectDb();
 
@@ -15,9 +15,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 //route
-app.get('/', (req, res) => {
-  res.send('<h1>hello</h1>');
-});
+app.use('/api/pizzas', pizzaRouter);
 
 app.listen(PORT, () => {
   console.log(
