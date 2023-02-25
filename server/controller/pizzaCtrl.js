@@ -1,4 +1,4 @@
-const Pizza = require('../model/pizzaModel');
+const pizzaModel = require('../model/pizzaModel');
 const asyncHandler = require('express-async-handler');
 
 //get all pizza
