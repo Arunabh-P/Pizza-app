@@ -1,11 +1,15 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 import { Image } from 'react-bootstrap';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const cartState = useSelector((state) => state.cartReducer);
+
   return (
     <Navbar className="navbar-wrapper" collapseOnSelect expand="lg">
       <Container>
@@ -34,7 +38,7 @@ const NavBar = () => {
               Register
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Cart
+              Cart {cartState.cartItems.length}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
