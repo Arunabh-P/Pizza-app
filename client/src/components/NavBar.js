@@ -2,10 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { BsCart2 } from 'react-icons/bs';
+
 import React from 'react';
 import { Image } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 const NavBar = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cartReducer);
@@ -31,15 +32,17 @@ const NavBar = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
             </NavDropdown> */}
-            <Nav.Link eventKey={2} href="#memes">
+            <Link className=" nav-links" to="/login">
               Login
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            </Link>
+            <Link className=" nav-links" to="/register">
               Register
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="/cart">
-              Cart {cartState.cartItems.length}
-            </Nav.Link>
+            </Link>
+
+            <Link className=" nav-links " to="/cart">
+              <BsCart2 />{' '}
+              <span className="cart-count">{cartState.cartItems.length}</span>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -71,4 +71,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-height: 80vh;
+}
+.navbar-wrapper {
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #211414;
+  margin-left: 10px;
+}
+.cart-count {
+  padding: 4px;
+  border-radius: 2px;
+  margin-left: 3px;
+  background-color: #ff2625;
+  color: #ffff;
 }
