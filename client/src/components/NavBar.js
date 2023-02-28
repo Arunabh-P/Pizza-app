@@ -37,7 +37,7 @@ const NavBar = () => {
             <Nav.Link eventKey={2} href="#memes">
               Register
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link eventKey={2} href="/cart">
               Cart {cartState.cartItems.length}
             </Nav.Link>
           </Nav>

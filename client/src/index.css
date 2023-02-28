@@ -31,3 +31,44 @@
   z-index: 1;
   background-color: #ffff;
 }
+.cart-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.plus-minus-icon {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 5px;
+  width: 22px;
+  height: 22px;
+  color: #ffff;
+  cursor: pointer;
+}
+.cart-img {
+  min-height: 150px;
+  max-width: 150px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.content-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+.delete-btn:hover {
+  color: #ff2625;
+}
+.cart-items {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: 10px;
+}
+.total-card {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
