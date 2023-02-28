@@ -14,14 +14,14 @@ const NavBar = () => {
   return (
     <Navbar className="navbar-wrapper" collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand href="/">
-          <Navbar.Brand>
+        <Navbar.Brand>
+          <Link className="  " to="/">
             <Image
               src="images/logo.png"
               alt="logo"
-              style={{ width: '220px' }}
+              style={{ width: '200px' }}
             />
-          </Navbar.Brand>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

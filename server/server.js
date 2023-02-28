@@ -7,6 +7,8 @@ const NODE_ENV = process.env.NODE_ENV;
 const connectDb = require('./config/config');
 const app = express();
 const pizzaRouter = require('./routes/pizzaRouter');
+const userRouter = require('./routes/userRouter');
+
 //database
 connectDb();
 
@@ -16,6 +18,7 @@ app.use(morgan('dev'));
 
 //route
 app.use('/api/pizzas', pizzaRouter);
+app.use('/api/users', userRouter);
 
 app.listen(PORT, () => {
   console.log(

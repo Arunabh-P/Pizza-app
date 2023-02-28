@@ -7,6 +7,7 @@
 }
 .pizza-list {
   overflow: auto;
+  padding: 10px;
 }
 .pizza-list::-webkit-scrollbar {
   display: none;
@@ -63,6 +64,9 @@
 .cart-items {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .total-card {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
@@ -89,4 +93,14 @@
   margin-left: 3px;
   background-color: #ff2625;
   color: #ffff;
+}
+.login-register-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.login-register-card {
+  max-width: fit-content;
+  background-color: #ff2625;
+  padding: 20px;
+  color: white;
 }
