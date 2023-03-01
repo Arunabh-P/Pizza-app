@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../action/userAction';
+import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
+import Success from '../components/Success';
+import Error from '../components/Error';
 
 const LoginScreen = () => {
+  const registerState = useSelector((state) => state.loginUserReducer);
+  const { error, success, loading } = registerState;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem('currentUser')) {
-      window.location.href = '/';
+      navigate('/');
     }
-  }, []);
+  }, [navigate]);
   const loginHandler = () => {
     const user = { email, password };
     dispatch(loginUser(user));
@@ -22,6 +29,9 @@ const LoginScreen = () => {
       <Container>
         <div className="login-register-wrapper mt-5">
           <div className="login-register-card rounded">
+            {loading && <Loader />}
+            {success && <Success success="User Login Successfully" />}
+            {error && <Error error="Wrong details" />}
             <Form>
               <h1 className="text-center mb-4">Login Now </h1>
 
@@ -32,9 +42,6 @@ const LoginScreen = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter email"
                 />
-                <Form.Text className="text-muted text-white">
-                  We'll never share your email with anyone else.
-                </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">

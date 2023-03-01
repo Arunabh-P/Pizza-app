@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const registerUser = (user) => async (dispatch) => {
   dispatch({ type: 'USER_REGISTER_REQUEST' });
   try {
@@ -19,4 +20,9 @@ export const loginUser = (user) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: 'USER_LOGIN_FAIL', payload: error });
   }
+};
+
+export const logoutUser = () => (dispatch) => {
+  localStorage.removeItem('currentUser');
+  window.location.href = '/login';
 };

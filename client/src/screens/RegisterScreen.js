@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../action/userAction';
+import { useSelector } from 'react-redux';
+import Loader from '../components/Loader';
+import Success from '../components/Success';
+import Error from '../components/Error';
 
 const RegisterScreen = () => {
+  const registerState = useSelector((state) => state.registerUserReducer);
+  const { error, success, loading } = registerState;
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confrimPassword, setConfrimPassword] = useState('');
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem('currentUser')) {
-      window.location.href = '/';
+      navigate('/');
     }
-  }, []);
+  }, [navigate]);
   const registerhandler = () => {
     if (password !== confrimPassword) {
       alert('Password do not match');
@@ -30,9 +38,9 @@ const RegisterScreen = () => {
       <Container>
         <div className="login-register-wrapper mt-5">
           <div className="login-register-card rounded">
-            {/* {loading && <Loader />}
-        {success && <Success success="User Register Successfully" />}
-        {error && <Error error="somthing went wrong" />} */}
+            {loading && <Loader />}
+            {success && <Success success="User Register Successfully" />}
+            {error && <Error error="somthing went wrong" />}
             <Form>
               <h1 className="text-center mb-4">Register Now </h1>
               <Form.Group className="mb-3" controlId="formBasicName">
@@ -50,9 +58,6 @@ const RegisterScreen = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">

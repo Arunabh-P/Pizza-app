@@ -4,6 +4,8 @@ import arrow from '../Images/arrow.png';
 import Pizza from './Pizza';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPizzas } from '../action/pizzaAction';
+import Loader from './Loader';
+import Error from './Error';
 const PizzaList = () => {
   const dispatch = useDispatch();
   const pizzaState = useSelector((state) => state.getAllPizzaReducer);
@@ -21,9 +23,9 @@ const PizzaList = () => {
         <img src={arrow} alt="arrow" className="arrow-img" />
       </div>
       {loading ? (
-        <h2>Loading</h2>
+        <Loader />
       ) : error ? (
-        <h1>Error while fetching pizzas {error}</h1>
+        <Error>Error while fetching pizzas {error}</Error>
       ) : (
         <div className="pizza-list d-flex justify-content-center justify-content-md-between">
           {pizzas?.map((pizza) => (

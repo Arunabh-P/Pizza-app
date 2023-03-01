@@ -8,6 +8,7 @@ const connectDb = require('./config/config');
 const app = express();
 const pizzaRouter = require('./routes/pizzaRouter');
 const userRouter = require('./routes/userRouter');
+const orderRouter = require('./routes/orderRouter');
 
 //database
 connectDb();
@@ -19,6 +20,7 @@ app.use(morgan('dev'));
 //route
 app.use('/api/pizzas', pizzaRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 app.listen(PORT, () => {
   console.log(

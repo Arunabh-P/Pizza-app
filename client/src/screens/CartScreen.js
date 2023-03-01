@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { addToCart, deleteFromCart } from '../action/cartAction';
 import { AiOutlineClose } from 'react-icons/ai';
+import CheckOut from '../components/CheckOut';
 const CartScreen = () => {
   const cartState = useSelector((state) => state.cartReducer);
   const cartItems = cartState.cartItems;
@@ -69,12 +70,7 @@ const CartScreen = () => {
           <Col md={4} className="mt-5 total-card">
             <h2>Payment Info</h2>
             <p className=" mt-2">Sub Total : Rs {subTotal}/-</p>
-            <Button
-              className="btn btn-danger w-100 mt-2
-            "
-            >
-              Checkout
-            </Button>
+            <CheckOut subTotal={subTotal} />
           </Col>
         </Row>
       </Container>
