@@ -12,8 +12,25 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
       cartItems,
     });
     dispatch({ type: 'PLACE_ORDER_SUCCESS' });
+    localStorage.removeItem('cartItems');
+    window.location.href = '/orders';
   } catch (error) {
     dispatch({ type: 'PLACE_ORDER_FAIL' });
     console.log(error);
+  }
+};
+
+export const getUserOrders = () => async (dispatch, getState) => {
+  const currentUser = getState().loginUserReducer.currentUser;
+  dispatch({
+    type: 'USER_ORDER_REQUEST',
+  });
+  try {
+    const response = await axios.post('/api/orders/getuserorder', {
+      userid: currentUser._id,
+    });
+    dispatch({ type: 'USER_ORDER_SUCCESS', payload: response.data });
+  } catch (error) {
+    dispatch({ type: 'USER_ORDER_FAIL', payload: error });
   }
 };

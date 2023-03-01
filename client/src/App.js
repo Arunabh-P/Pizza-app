@@ -6,6 +6,7 @@ import CartScreen from './screens/CartScreen';
 import Footer from './components/Footer';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import OrderScreen from './screens/OrderScreen';
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/" element={<HomeScreen />} />
         <Route path="/cart" element={<CartScreen />} />
+        <Route path="/orders" element={<OrderScreen />} />
       </Routes>
       <Footer />
     </BrowserRouter>
